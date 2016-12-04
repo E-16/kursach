@@ -13,30 +13,6 @@
         android:id="@+id/tableLayout1">
         <TableRow
             android:id="@+id/tableRow1">
-            <Button
-                android:text="Button"
-                android:layout_column="0"
-                android:id="@+id/button1" />
-            <Button
-                android:text="Button"
-                android:layout_column="1"
-                android:id="@+id/button2" />
-            <Button
-                android:text="Button"
-                android:layout_column="2"
-                android:id="@+id/button3" />
-            <Button
-                android:text="Button"
-                android:layout_column="3"
-                android:id="@+id/button4" />
-            <Button
-                android:text="Button"
-                android:layout_column="4"
-                android:id="@+id/button5" />
-            <Button
-                android:text="Button"
-                android:layout_column="5"
-                android:id="@+id/button6" />
         </TableRow>
         <TableRow
             android:id="@+id/tableRow2">
