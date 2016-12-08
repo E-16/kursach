@@ -162,7 +162,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_menu_search_holo_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Menu\top_menus.xml" />
+    <AndroidResource Include="Resources\Menu\top_menus.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_clear_white_24dp.png" />
