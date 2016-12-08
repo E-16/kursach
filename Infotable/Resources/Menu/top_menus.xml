@@ -5,13 +5,22 @@
 		  android:icon="@drawable/ic_action_content_create"
 		  android:showAsAction="ifRoom"
 		  android:title="Edit" />
-	<item
+	<!--<item
 		  android:id="@+id/menu_save"
 		  android:icon="@drawable/ic_action_content_save"
-		  android:showAsAction="ifRoom"
-		  android:title="Save" />
-	<item
-		  android:id="@+id/menu_preferences"
 		  android:showAsAction="never"
-		  android:title="Preferences" />
+		  android:title="Save" />-->
+	<item
+		  android:id="@+id/menu_notification"
+		  android:showAsAction="never"
+		  android:title="DEBUG:Push notification" />
+	<item
+		  android:id="@+id/menu_copyDB"
+		  android:showAsAction="never"
+		  android:title="DEBUG:Copy DB" />
+	<item
+		  android:id="@+id/menu_refresh"
+		  android:icon="@drawable/ic_action_content_create"
+		  android:showAsAction="never"
+		  android:title="DEBUG:Refresh" />
 </menu>

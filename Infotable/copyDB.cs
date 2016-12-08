@@ -15,7 +15,7 @@ namespace Infotable
 {
 	class copyDB : Activity
 	{
-		public static void copy(BinaryReader br, string dbName)
+		public static bool copy(BinaryReader br, string dbName)
 		{
 			//string dbName = "testtimetableworks.sqlite";
 			string dbPath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), dbName);
@@ -32,8 +32,13 @@ namespace Infotable
 						{
 							bw.Write(buffer, 0, len);
 						}
+						return true;
 					}
 				}
+			}
+			else
+			{
+				return false;
 			}
 		}
 	}

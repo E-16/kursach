@@ -51,19 +51,34 @@ namespace Infotable
 			public const int ic_action_content_save = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int ic_menu_copy_holo_dark = 2130837506;
+			public const int ic_clear_white_24dp = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int ic_menu_cut_holo_dark = 2130837507;
+			public const int ic_delete_white_24dp = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int ic_menu_paste_holo_dark = 2130837508;
+			public const int ic_menu_copy_holo_dark = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int ic_menu_search_holo_dark = 2130837509;
+			public const int ic_menu_cut_holo_dark = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int Icon = 2130837510;
+			public const int ic_menu_paste_holo_dark = 2130837510;
+			
+			// aapt resource value: 0x7f020007
+			public const int ic_menu_search_holo_dark = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int ic_mode_edit_white_24dp = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int ic_refresh_white_24dp = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int ic_today_white_24dp = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int Icon = 2130837515;
 			
 			static Drawable()
 			{
@@ -78,14 +93,17 @@ namespace Infotable
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f070007
+			public const int menu_copyDB = 2131165191;
+			
 			// aapt resource value: 0x7f070005
 			public const int menu_edit = 2131165189;
 			
-			// aapt resource value: 0x7f070007
-			public const int menu_preferences = 2131165191;
-			
 			// aapt resource value: 0x7f070006
-			public const int menu_save = 2131165190;
+			public const int menu_notification = 2131165190;
+			
+			// aapt resource value: 0x7f070008
+			public const int menu_refresh = 2131165192;
 			
 			// aapt resource value: 0x7f070001
 			public const int tableLayout1 = 2131165185;
