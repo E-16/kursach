@@ -2,6 +2,7 @@
 using Android.Widget;
 using Android.OS;
 using System.IO;
+using Android.Views;
 
 namespace Infotable
 {
@@ -24,6 +25,11 @@ namespace Infotable
 			var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 			SetActionBar(toolbar);
 			ActionBar.Title = "My Toolbar";
+		}
+		public override bool OnCreateOptionsMenu(IMenu menu)
+		{
+			MenuInflater.Inflate(Resource.Menu.top_menus, menu);
+			return base.OnCreateOptionsMenu(menu);
 		}
 	}
 }
