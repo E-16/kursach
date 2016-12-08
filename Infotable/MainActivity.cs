@@ -24,10 +24,10 @@ namespace Infotable
 			toolbar.MenuItemClick += (sender, e) =>
 			{
 				//Toast.MakeText(this, "Toolbar tapped: " + e.Item.TitleFormatted, ToastLength.Short).Show();
-				switch ("" + e.Item.TitleFormatted)
+				switch (e.Item.ItemId)
 				{
 					//Скопировать БД на устройсво
-					case "DEBUG:Copy DB":
+					case "menu_copyDB":
 					{
 							string dbName = "testtimetableworks.sqlite";
 							BinaryReader br = new BinaryReader(Assets.Open(dbName));
