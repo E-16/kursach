@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,10 +16,10 @@ namespace Infotable.Infotable
 	class copyDB : Activity
 	{
 		/// <summary>
-		/// Скопировать БД на карту памяти устройства
+		/// РЎРєРѕРїРёСЂРѕРІР°С‚СЊ Р‘Р” РЅР° РєР°СЂС‚Сѓ РїР°РјСЏС‚Рё СѓСЃС‚СЂРѕР№СЃС‚РІР°
 		/// </summary>
-		/// <param name="br">Ассет БД</param>
-		/// <param name="dbName">Имя БД</param>
+		/// <param name="br">РђСЃСЃРµС‚ Р‘Р”</param>
+		/// <param name="dbName">РРјСЏ Р‘Р”</param>
 		/// <returns></returns>
 		public static bool copy(BinaryReader br, string dbName)
 		{
@@ -28,26 +28,26 @@ namespace Infotable.Infotable
 				dbPath.Mkdirs();
 			//string dbName = "testtimetableworks.sqlite";
 			string dbFile = Path.Combine(dbPath.ToString(), dbName);
-			// Проверить существование БД
+			// РџСЂРѕРІРµСЂРёС‚СЊ СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ Р‘Р”
 			if (!File.Exists(dbFile))
 			{
 				using (br/*BinaryReader br = new BinaryReader(Assets.Open(dbName))*/)
 				{
 					using (BinaryWriter bw = new BinaryWriter(new FileStream(dbFile, FileMode.Create)))
 					{
-						//Копирование БД через буфер
+						//РљРѕРїРёСЂРѕРІР°РЅРёРµ Р‘Р” С‡РµСЂРµР· Р±СѓС„РµСЂ
 						byte[] buffer = new byte[2048];
 						int len = 0;
 						while ((len = br.Read(buffer, 0, buffer.Length)) > 0)
 						{
 							bw.Write(buffer, 0, len);
 						}
-						//Успех
+						//РЈСЃРїРµС…
 						return true;
 					}
 				}
 			}
-			//Неудача
+			//РќРµСѓРґР°С‡Р°
 			else
 			{
 				return false;
