@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using System.IO;
 
-namespace Infotable //Может быть, следует поменять на Infotable.Infotable?
+namespace Infotable.Infotable
 {
 	class copyDB : Activity
 	{
@@ -23,14 +23,17 @@ namespace Infotable //Может быть, следует поменять на Infotable.Infotable?
 		/// <returns></returns>
 		public static bool copy(BinaryReader br, string dbName)
 		{
+			var dbPath = new Java.IO.File(Android.OS.Environment.ExternalStorageDirectory.ToString()+"/Infotable/");
+			if (!dbPath.Exists())
+				dbPath.Mkdirs();
 			//string dbName = "testtimetableworks.sqlite";
-			string dbPath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), dbName);
+			string dbFile = Path.Combine(dbPath.ToString(), dbName);
 			// Проверить существование БД
-			if (!File.Exists(dbPath))
+			if (!File.Exists(dbFile))
 			{
 				using (br/*BinaryReader br = new BinaryReader(Assets.Open(dbName))*/)
 				{
-					using (BinaryWriter bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
+					using (BinaryWriter bw = new BinaryWriter(new FileStream(dbFile, FileMode.Create)))
 					{
 						//Копирование БД через буфер
 						byte[] buffer = new byte[2048];

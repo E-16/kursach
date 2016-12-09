@@ -44,7 +44,7 @@ namespace Infotable.Infotable
 					case "DEBUG:Copy DB":
 					{
 							string dbName = "testtimetableworks.sqlite";
-							BinaryReader br = new BinaryReader(Assets.Open(dbName));
+							BinaryReader br = new BinaryReader(Assets.Open(dbName));//Это неправильно. Надо перенести в copyDB в качестве ссылки
 							if (copyDB.copy(br, dbName) == true)
 							{
 								Toast.MakeText(this, "DB copied to device", ToastLength.Short).Show();
