@@ -19,8 +19,8 @@ namespace Infotable
 
 			//notification builder
 			Notification.Builder builder = new Notification.Builder(this)
-							.SetContentTitle("Sample Notification")
-							.SetContentText("Hello World! This is my first notification!")
+							.SetContentTitle("Notification")
+							.SetContentText("This is a notification")
 							.SetSmallIcon(Resource.Drawable.ic_today_white_24dp);
 			builder.SetVisibility(NotificationVisibility.Private);
 			//builder.SetCategory(Notification.CategoryEvent);
@@ -33,7 +33,7 @@ namespace Infotable
 			//toolbar
 			var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 			SetActionBar(toolbar);
-			ActionBar.Title = "My Toolbar";
+			ActionBar.Title = "Infotable";
 			//Выбор из меню
 			toolbar.MenuItemClick += (sender, e) =>
 			{
