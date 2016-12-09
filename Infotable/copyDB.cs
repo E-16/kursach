@@ -13,7 +13,7 @@ using System.IO;
 
 namespace Infotable.Infotable
 {
-	class copyDB : Activity
+	class copyDB// : Activity
 	{
 		/// <summary>
 		/// Скопировать БД на карту памяти устройства

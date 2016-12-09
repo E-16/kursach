@@ -17,7 +17,7 @@ namespace Infotable.Infotable
 			//Отобразить макет "Main".
 			SetContentView (Resource.Layout.Main);
 
-			//notification builder (составитель уведомлений)
+			//notification builder (составитель уведомлений) //Это неправильно.
 			Notification.Builder builder = new Notification.Builder(this)
 							.SetContentTitle("Notification")
 							.SetContentText("This is a notification")
@@ -37,7 +37,7 @@ namespace Infotable.Infotable
 			//Выбор из меню
 			toolbar.MenuItemClick += (sender, e) =>
 			{
-				//Toast.MakeText(this, "Toolbar tapped: " + e.Item.TitleFormatted, ToastLength.Short).Show();
+				//Toast.MakeText(this, "Toolbar tapped: " + e.Item.TitleFormatted, ToastLength.Short).Show();//Отображение названия нажатого пункта для дебага
 				switch (e.Item.TitleFormatted.ToString()) //Тут бы поменять на ID вместо Title
 				{
 					//Скопировать БД на устройсво
