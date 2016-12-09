@@ -4,7 +4,7 @@ using Android.OS;
 using System.IO;
 using Android.Views;
 
-namespace Infotable
+namespace Infotable.Infotable
 {
 	[Activity(Label = "Infotable", MainLauncher = true, Icon = "@drawable/ic_today_white_24dp")]
 	public class MainActivity : Activity
@@ -20,6 +20,7 @@ namespace Infotable
 			var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 			SetActionBar(toolbar);
 			ActionBar.Title = "My Toolbar";
+
 			//Выбор из меню
 			toolbar.MenuItemClick += (sender, e) =>
 			{
@@ -49,11 +50,13 @@ namespace Infotable
 				}
 			};
 		}
+
 		public override bool OnCreateOptionsMenu(IMenu menu)
 		{
 			MenuInflater.Inflate(Resource.Menu.top_menus, menu);
 			return base.OnCreateOptionsMenu(menu);
 		}
+
 		//public override bool OnOptionsItemSelected(IMenuItem item)
 		//{
 		//	Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
