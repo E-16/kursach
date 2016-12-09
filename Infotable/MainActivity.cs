@@ -14,10 +14,10 @@ namespace Infotable.Infotable
 		{
 			base.OnCreate(bundle);
 
-			// Set our view from the "main" layout resource
+			//Отобразить макет "Main".
 			SetContentView (Resource.Layout.Main);
 
-			//notification builder
+			//notification builder (составитель уведомлений)
 			Notification.Builder builder = new Notification.Builder(this)
 							.SetContentTitle("Notification")
 							.SetContentText("This is a notification")
@@ -30,7 +30,7 @@ namespace Infotable.Infotable
 			const int notificationId = 0;
 			//notificationManager.Notify(notificationId, notification);
 
-			//toolbar
+			//Создание тулбара
 			var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 			SetActionBar(toolbar);
 			ActionBar.Title = "Infotable";
@@ -55,12 +55,14 @@ namespace Infotable.Infotable
 							}
 							break;
 					}
+					//Создать уведомление
 					case "DEBUG:Push notification":
 					{
 							notificationManager.Notify(notificationId, notification);
 							Toast.MakeText(this, "Pushed a notification", ToastLength.Short).Show();
 							break;
 					}
+					//Любой другой пункт
 					default:
 					{
 							Toast.MakeText(this, "Not implemented yet", ToastLength.Short).Show();
@@ -69,6 +71,11 @@ namespace Infotable.Infotable
 				}
 			};
 		}
+		/// <summary>
+		/// Действие при создании меню в тулбаре
+		/// </summary>
+		/// <param name="menu"></param>
+		/// <returns></returns>
 		public override bool OnCreateOptionsMenu(IMenu menu)
 		{
 			MenuInflater.Inflate(Resource.Menu.top_menus, menu);
