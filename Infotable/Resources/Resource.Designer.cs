@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("Infotable.Infotable.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("Infotable.Resource", IsApplication=true)]
 
-namespace Infotable.Infotable
+namespace Infotable
 {
 	
 	

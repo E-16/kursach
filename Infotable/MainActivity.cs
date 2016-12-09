@@ -3,6 +3,7 @@ using Android.Widget;
 using Android.OS;
 using System.IO;
 using Android.Views;
+using Android.Content;
 
 namespace Infotable.Infotable
 {
@@ -16,16 +17,28 @@ namespace Infotable.Infotable
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
+			//notification builder
+			Notification.Builder builder = new Notification.Builder(this)
+							.SetContentTitle("Notification")
+							.SetContentText("This is a notification")
+							.SetSmallIcon(Resource.Drawable.ic_today_white_24dp);
+			builder.SetVisibility(NotificationVisibility.Private);
+			//builder.SetCategory(Notification.CategoryEvent);
+			Notification notification = builder.Build();
+			NotificationManager notificationManager =
+					GetSystemService(Context.NotificationService) as NotificationManager;
+			const int notificationId = 0;
+			//notificationManager.Notify(notificationId, notification);
+
 			//toolbar
 			var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 			SetActionBar(toolbar);
-			ActionBar.Title = "My Toolbar";
-
+			ActionBar.Title = "Infotable";
 			//Выбор из меню
 			toolbar.MenuItemClick += (sender, e) =>
 			{
 				//Toast.MakeText(this, "Toolbar tapped: " + e.Item.TitleFormatted, ToastLength.Short).Show();
-				switch ("" + e.Item.TitleFormatted)
+				switch (e.Item.TitleFormatted.ToString()) //Тут бы поменять на ID вместо Title
 				{
 					//Скопировать БД на устройсво
 					case "DEBUG:Copy DB":
@@ -42,6 +55,12 @@ namespace Infotable.Infotable
 							}
 							break;
 					}
+					case "DEBUG:Push notification":
+					{
+							notificationManager.Notify(notificationId, notification);
+							Toast.MakeText(this, "Pushed a notification", ToastLength.Short).Show();
+							break;
+					}
 					default:
 					{
 							Toast.MakeText(this, "Not implemented yet", ToastLength.Short).Show();
@@ -50,13 +69,11 @@ namespace Infotable.Infotable
 				}
 			};
 		}
-
 		public override bool OnCreateOptionsMenu(IMenu menu)
 		{
 			MenuInflater.Inflate(Resource.Menu.top_menus, menu);
 			return base.OnCreateOptionsMenu(menu);
 		}
-
 		//public override bool OnOptionsItemSelected(IMenuItem item)
 		//{
 		//	Toast.MakeText(this, "Action selected: " + item.TitleFormatted,

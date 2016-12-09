@@ -9,7 +9,7 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Infotable.Infotable</RootNamespace>
+    <RootNamespace>Infotable</RootNamespace>
     <AssemblyName>Infotable</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
@@ -162,7 +162,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_menu_search_holo_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\top_menus.xml" />
+    <AndroidResource Include="Resources\Menu\top_menus.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_clear_white_24dp.png" />
