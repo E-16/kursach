@@ -5,7 +5,7 @@ using System.IO;
 using Android.Views;
 using Android.Content;
 
-namespace Infotable
+namespace Infotable.Infotable
 {
 	[Activity(Label = "Infotable", MainLauncher = true, Icon = "@drawable/ic_today_white_24dp")]
 	public class MainActivity : Activity
