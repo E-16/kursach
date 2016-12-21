@@ -17,6 +17,19 @@ namespace Infotable.Infotable
 			//Отобразить макет "Main".
 			SetContentView (Resource.Layout.Main);
 
+			
+			//Скопировать пустую БД на  устройство
+			string blankdbName = "blank.sqlite";
+			BinaryReader brBlank = new BinaryReader(Assets.Open(blankdbName));//Это неправильно. Надо перенести в copyDB в качестве ссылки
+			if (copyDB.copy(brBlank, blankdbName) == true)
+			{
+				Toast.MakeText(this, "DB copied to device", ToastLength.Short).Show();
+			}
+			else
+			{
+				Toast.MakeText(this, "Failed to copy DB", ToastLength.Short).Show();
+			}
+
 			//notification builder (составитель уведомлений) //Это неправильно.
 			Notification.Builder builder = new Notification.Builder(this)
 							.SetContentTitle("Notification")

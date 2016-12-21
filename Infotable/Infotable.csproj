@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\testtimetableworks.sqlite" />
+    <AndroidAsset Include="Assets\blank.sqlite" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
