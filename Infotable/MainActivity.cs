@@ -14,8 +14,6 @@ namespace Infotable.Infotable
 		{
 			base.OnCreate(bundle);
 
-			//test commit
-
 			//Отобразить макет "Main".
 			SetContentView(Resource.Layout.Main);
 
