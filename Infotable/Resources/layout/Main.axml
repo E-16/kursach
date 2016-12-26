@@ -5,20 +5,10 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
-    <TableLayout
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tableLayout1">
-        <TableRow
-            android:id="@+id/tableRow1">
-        </TableRow>
-        <TableRow
-            android:id="@+id/tableRow2">
-        </TableRow>
-        <TableRow
-            android:id="@+id/tableRow3">
-        </TableRow>
-    </TableLayout>
+        android:layout_below="@id/toolbar"
+        android:id="@+id/button1" />
 </RelativeLayout>
