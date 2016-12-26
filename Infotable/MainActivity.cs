@@ -14,10 +14,11 @@ namespace Infotable.Infotable
 		{
 			base.OnCreate(bundle);
 
-			//Отобразить макет "Main".
-			SetContentView (Resource.Layout.Main);
+			//test commit
 
-			//dddddddddddd
+			//Отобразить макет "Main".
+			SetContentView(Resource.Layout.Main);
+
 			//Скопировать пустую БД на  устройство
 			string blankdbName = "blank.sqlite";
 			BinaryReader brBlank = new BinaryReader(Assets.Open(blankdbName));//Это неправильно. Надо перенести в copyDB в качестве ссылки
