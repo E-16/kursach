@@ -29,6 +29,9 @@ namespace Infotable.Infotable
 				Toast.MakeText(this, "Failed to copy DB", ToastLength.Short).Show();
 			}
 
+			//notification builder (составитель уведомлений) //Это неправильно.
+			Notification.Builder builder = new Notification.Builder(this);
+
 			//Создание тулбара
 			var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 			SetActionBar(toolbar);
@@ -57,11 +60,9 @@ namespace Infotable.Infotable
 					//Создать уведомление
 					case "DEBUG:Push notification":
 					{
-							//notification builder (составитель уведомлений) //Это неправильно.
-							Notification.Builder builder = new Notification.Builder(this)
-											.SetContentTitle("Notification")
-											.SetContentText(DBhandler.getNoniInfo("testtimetableworks.sqlite"))
-											.SetSmallIcon(Resource.Drawable.ic_today_white_24dp);
+							builder.SetContentTitle("Notification");
+							builder.SetContentText(DBhandler.getNoniInfo("testtimetableworks.sqlite"));
+							builder.SetSmallIcon(Resource.Drawable.ic_today_white_24dp);
 							builder.SetVisibility(NotificationVisibility.Private);
 							//builder.SetCategory(Notification.CategoryEvent);
 							Notification notification = builder.Build();
