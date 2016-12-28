@@ -7,6 +7,10 @@ using Android.Content;
 using SQLite.Net;
 using SQLite;
 using SQLite.Net.Attributes;
+using Android.Text.Format;
+using System;
+using Android.Preferences;
+using Java.Text;
 
 namespace Infotable.Infotable
 {
@@ -63,6 +67,8 @@ namespace Infotable.Infotable
 			public int subj_ID { get; set; }
 
 			public int plac_ID { get; set; }
+
+			public int num_ID { get; set; }
 		}
 
 		public static string getNoniInfo(string dbName)
@@ -80,9 +86,60 @@ namespace Infotable.Infotable
 			string str = "";
 			foreach (var s in table)
 			{
-				str+=(s.subj_ID + " " + s.plac_ID + "|");
+				if (s.num_ID == getCurrLess(dbName))
+					str+=(s.subj_ID + " " + s.plac_ID);
 			}
+			if (str == "")
+				str = "No lesson now";
 			return str;
+		}
+
+
+
+		[Table("testtimetable_lessnums")]
+		public class testtimetable_lessnums
+		{
+			[PrimaryKey, AutoIncrement, Column("_id")]
+			public int num_ID { get; set; }
+			//[MaxLength(8)]
+			//public string Symbol { get; set; }
+
+			public string num_beg { get; set; }
+
+			public string num_end { get; set; }
+		}
+
+		public static int getCurrLess(string dbName)
+		{
+			var dbPath = new Java.IO.File(Android.OS.Environment.ExternalStorageDirectory.ToString() + "/Infotable/");
+			//if (!dbPath.Exists())
+			//	return 0;
+			//string dbName = "testtimetable2.sqlite";
+			string dbFile = Path.Combine(dbPath.ToString(), dbName);
+			var db = new SQLiteConnection(new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(), dbFile);
+			//db.CreateTable<testtimetable_lessons>();
+			//var stock = db.Get<testtimetable_lessons>(1); // primary key id of 5
+			//var stockList = db.Table<testtimetable_lessons>();
+			var table = db.Table<testtimetable_lessnums>();
+			int num = 5;
+
+			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+			var time = DateTime.UtcNow.AddHours(3).ToString("HH:mm:ss");
+
+			foreach (var s in table)
+			{
+				if (s.num_beg.CompareTo(time) < 0 && s.num_end.CompareTo(time) > 0)
+					num = s.num_ID;
+				//str += (s.subj_ID + " " + s.plac_ID + "|");
+			}
+			//DateFormat[] formats = new DateFormat[] {
+			//DateFormat.getDateInstance(),
+			//DateFormat.getDateTimeInstance(),
+			//DateFormat.getTimeInstance(),
+			//};
+
+			return num;
+			//return time;
 		}
 	}
 }

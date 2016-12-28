@@ -60,7 +60,7 @@ namespace Infotable.Infotable
 					//Создать уведомление
 					case "DEBUG:Push notification":
 					{
-							builder.SetContentTitle("Notification");
+							builder.SetContentTitle(DBhandler.getCurrLess("testtimetable2.sqlite").ToString());
 							builder.SetContentText(DBhandler.getNoniInfo("testtimetable2.sqlite"));
 							builder.SetSmallIcon(Resource.Drawable.ic_today_white_24dp);
 							builder.SetVisibility(NotificationVisibility.Private);
