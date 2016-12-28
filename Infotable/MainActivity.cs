@@ -19,8 +19,8 @@ namespace Infotable.Infotable
 
 			//Скопировать пустую БД на  устройство
 			string blankdbName = "blank.sqlite";
-			BinaryReader brBlank = new BinaryReader(Assets.Open(blankdbName));//Это неправильно. Надо перенести в copyDB в качестве ссылки
-			if (copyDB.copy(brBlank, blankdbName) == true)
+			BinaryReader brBlank = new BinaryReader(Assets.Open(blankdbName));//Это неправильно. Надо перенести в DBhandler в качестве ссылки
+			if (DBhandler.copyDB(brBlank, blankdbName) == true)
 			{
 				Toast.MakeText(this, "DB copied to device", ToastLength.Short).Show();
 			}
@@ -28,19 +28,6 @@ namespace Infotable.Infotable
 			{
 				Toast.MakeText(this, "Failed to copy DB", ToastLength.Short).Show();
 			}
-
-			//notification builder (составитель уведомлений) //Это неправильно.
-			Notification.Builder builder = new Notification.Builder(this)
-							.SetContentTitle("Notification")
-							.SetContentText("This is a notification")
-							.SetSmallIcon(Resource.Drawable.ic_today_white_24dp);
-			builder.SetVisibility(NotificationVisibility.Private);
-			//builder.SetCategory(Notification.CategoryEvent);
-			Notification notification = builder.Build();
-			NotificationManager notificationManager =
-					GetSystemService(Context.NotificationService) as NotificationManager;
-			const int notificationId = 0;
-			//notificationManager.Notify(notificationId, notification);
 
 			//Создание тулбара
 			var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
@@ -56,8 +43,8 @@ namespace Infotable.Infotable
 					case "DEBUG:Copy DB":
 					{
 							string dbName = "testtimetableworks.sqlite";
-							BinaryReader br = new BinaryReader(Assets.Open(dbName));//Это неправильно. Надо перенести в copyDB в качестве ссылки
-							if (copyDB.copy(br, dbName) == true)
+							BinaryReader br = new BinaryReader(Assets.Open(dbName));//Это неправильно. Надо перенести в DBhandler в качестве ссылки
+							if (DBhandler.copyDB(br, dbName) == true)
 							{
 								Toast.MakeText(this, "DB copied to device", ToastLength.Short).Show();
 							}
@@ -70,6 +57,18 @@ namespace Infotable.Infotable
 					//Создать уведомление
 					case "DEBUG:Push notification":
 					{
+							//notification builder (составитель уведомлений) //Это неправильно.
+							Notification.Builder builder = new Notification.Builder(this)
+											.SetContentTitle("Notification")
+											.SetContentText(DBhandler.getNoniInfo("testtimetableworks.sqlite"))
+											.SetSmallIcon(Resource.Drawable.ic_today_white_24dp);
+							builder.SetVisibility(NotificationVisibility.Private);
+							//builder.SetCategory(Notification.CategoryEvent);
+							Notification notification = builder.Build();
+							NotificationManager notificationManager =
+									GetSystemService(Context.NotificationService) as NotificationManager;
+							const int notificationId = 0;
+							//notificationManager.Notify(notificationId, notification);
 							notificationManager.Notify(notificationId, notification);
 							Toast.MakeText(this, "Pushed a notification", ToastLength.Short).Show();
 							break;

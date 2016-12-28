@@ -26,6 +26,8 @@ namespace Infotable
 		
 		public static void UpdateIdValues()
 		{
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Infotable.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Infotable.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
