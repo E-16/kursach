@@ -59,7 +59,7 @@ namespace Infotable.Infotable
 		[Table("testtimetable_lessons")]
 		public class testtimetable_lessons
 		{
-			[PrimaryKey, AutoIncrement, Column("_id")]
+			[PrimaryKey, AutoIncrement]
 			public int less_ID { get; set; }
 			//[MaxLength(8)]
 			//public string Symbol { get; set; }
@@ -99,7 +99,7 @@ namespace Infotable.Infotable
 		[Table("testtimetable_lessnums")]
 		public class testtimetable_lessnums
 		{
-			[PrimaryKey, AutoIncrement, Column("_id")]
+			[PrimaryKey, AutoIncrement]
 			public int num_ID { get; set; }
 			//[MaxLength(8)]
 			//public string Symbol { get; set; }
@@ -112,8 +112,8 @@ namespace Infotable.Infotable
 		public static int getCurrLess(string dbName)
 		{
 			var dbPath = new Java.IO.File(Android.OS.Environment.ExternalStorageDirectory.ToString() + "/Infotable/");
-			//if (!dbPath.Exists())
-			//	return 0;
+			if (!dbPath.Exists())
+				return 0;
 			//string dbName = "testtimetable2.sqlite";
 			string dbFile = Path.Combine(dbPath.ToString(), dbName);
 			var db = new SQLiteConnection(new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(), dbFile);
@@ -121,13 +121,15 @@ namespace Infotable.Infotable
 			//var stock = db.Get<testtimetable_lessons>(1); // primary key id of 5
 			//var stockList = db.Table<testtimetable_lessons>();
 			var table = db.Table<testtimetable_lessnums>();
-			int num = 5;
+			int num = 0;
 
 			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 			var time = DateTime.UtcNow.AddHours(3).ToString("HH:mm:ss");
 
+			//string test = "";
 			foreach (var s in table)
 			{
+				//test+=(s.num_ID.ToString()+", ");
 				if (s.num_beg.CompareTo(time) < 0 && s.num_end.CompareTo(time) > 0)
 					num = s.num_ID;
 				//str += (s.subj_ID + " " + s.plac_ID + "|");
