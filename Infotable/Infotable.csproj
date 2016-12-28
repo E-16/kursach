@@ -73,8 +73,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\testtimetableworks.sqlite" />
     <AndroidAsset Include="Assets\blank.sqlite" />
+    <AndroidAsset Include="Assets\testtimetable2.sqlite" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />

@@ -23,7 +23,7 @@ namespace Infotable.Infotable
 			var dbPath = new Java.IO.File(Android.OS.Environment.ExternalStorageDirectory.ToString()+"/Infotable/");
 			if (!dbPath.Exists())
 				dbPath.Mkdirs();
-			//string dbName = "testtimetableworks.sqlite";
+			//string dbName = "testtimetable2.sqlite";
 			string dbFile = Path.Combine(dbPath.ToString(), dbName);
 			// Проверить существование БД
 			if (!File.Exists(dbFile))
@@ -70,7 +70,7 @@ namespace Infotable.Infotable
 			var dbPath = new Java.IO.File(Android.OS.Environment.ExternalStorageDirectory.ToString() + "/Infotable/");
 			if (!dbPath.Exists())
 				return null;
-			//string dbName = "testtimetableworks.sqlite";
+			//string dbName = "testtimetable2.sqlite";
 			string dbFile = Path.Combine(dbPath.ToString(), dbName);
 			var db = new SQLiteConnection(new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(), dbFile);
 			//db.CreateTable<testtimetable_lessons>();

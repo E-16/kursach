@@ -45,7 +45,7 @@ namespace Infotable.Infotable
 					//Скопировать БД на устройсво
 					case "DEBUG:Copy DB":
 					{
-							string dbName = "testtimetableworks.sqlite";
+							string dbName = "testtimetable2.sqlite";
 							BinaryReader br = new BinaryReader(Assets.Open(dbName));//Это неправильно. Надо перенести в DBhandler в качестве ссылки
 							if (DBhandler.copyDB(br, dbName) == true)
 							{
@@ -61,7 +61,7 @@ namespace Infotable.Infotable
 					case "DEBUG:Push notification":
 					{
 							builder.SetContentTitle("Notification");
-							builder.SetContentText(DBhandler.getNoniInfo("testtimetableworks.sqlite"));
+							builder.SetContentText(DBhandler.getNoniInfo("testtimetable2.sqlite"));
 							builder.SetSmallIcon(Resource.Drawable.ic_today_white_24dp);
 							builder.SetVisibility(NotificationVisibility.Private);
 							//builder.SetCategory(Notification.CategoryEvent);
