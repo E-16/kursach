@@ -69,6 +69,8 @@ namespace Infotable.Infotable
 			public int plac_ID { get; set; }
 
 			public int num_ID { get; set; }
+
+			public int less_day { get; set; }
 		}
 
 		public static string getNoniInfo(string dbName)
@@ -86,7 +88,7 @@ namespace Infotable.Infotable
 			string str = "";
 			foreach (var s in table)
 			{
-				if (s.num_ID == getCurrLess(dbName))
+				if (s.num_ID == getCurrLess(dbName) && s.less_day == 1)//1 заменить на определение текущего дня.
 					str+=(s.subj_ID + " " + s.plac_ID);
 			}
 			if (str == "")
