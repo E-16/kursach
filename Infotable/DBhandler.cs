@@ -70,7 +70,7 @@ namespace Infotable.Infotable
 
 			public int num_ID { get; set; }
 
-			public int less_day { get; set; }
+			public string less_day { get; set; }
 		}
 
 		public static string getNoniInfo(string dbName)
@@ -86,13 +86,17 @@ namespace Infotable.Infotable
 			//var stockList = db.Table<testtimetable_lessons>();
 			var table = db.Table<testtimetable_lessons>();
 			string str = "";
+			SimpleDateFormat sdf = new SimpleDateFormat("EEE", Java.Util.Locale.English); //Ну и костыль
+			var sada = DateTime.Now.Millisecond;
+			var time = sdf.Format(sada);//.ToString("HH");
+			//time = sdf.Format(new Java.Util.Date(time.ToString()));
 			foreach (var s in table)
 			{
-				if (s.num_ID == getCurrLess(dbName) && s.less_day == 1)//1 заменить на определение текущего дня.
+				if (s.num_ID == getCurrLess(dbName) && s.less_day == time)//1 заменить на определение текущего дня.
 					str+=(s.subj_ID + " " + s.plac_ID);
 			}
 			if (str == "")
-				str = "No lesson now";
+				str = ("No lesson now");
 			return str;
 		}
 
@@ -125,8 +129,8 @@ namespace Infotable.Infotable
 			var table = db.Table<testtimetable_lessnums>();
 			int num = 0;
 
-			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-			var time = DateTime.UtcNow.AddHours(3).ToString("HH:mm:ss");
+			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss"); //Это, вроде, не нужно
+			var time = DateTime.Now.ToString("HH:mm:ss");
 
 			//string test = "";
 			foreach (var s in table)
