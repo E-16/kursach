@@ -87,8 +87,7 @@ namespace Infotable.Infotable
 			var table = db.Table<testtimetable_lessons>();
 			string str = "";
 			SimpleDateFormat sdf = new SimpleDateFormat("EEE", Java.Util.Locale.English); //Ну и костыль
-			var sada = DateTime.Now.Millisecond;
-			var time = sdf.Format(sada);//.ToString("HH");
+			var time = sdf.Format(DateTime.Now.Millisecond);
 			//time = sdf.Format(new Java.Util.Date(time.ToString()));
 			foreach (var s in table)
 			{
